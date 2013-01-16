@@ -1,0 +1,119 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Wallscape.InstructionsUI.InstructionMain"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="134"/>
+            <RowDefinition Height="634*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Margin="12,17,0,1">
+            <TextBlock x:Name="ApplicationTitle" Foreground="#FF6BD8F6" Text="BASIC RULES" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Foreground="#FFC5D118" Text="TUTORIAL" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,27,0,210">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120*" />
+                <RowDefinition Height="152*" />
+                <RowDefinition Height="96*" />
+            </Grid.RowDefinitions>
+            <TextBlock TextWrapping="Wrap" Height="304" HorizontalAlignment="Left" Name="textBlock2" 
+               Text=" The objective of Wallscape is to get all of your pieces to safety before your opponents." VerticalAlignment="Top" Width="474" Grid.ColumnSpan="2" Grid.RowSpan="2" FontSize="24" TextAlignment="Center" FontWeight="Bold" />
+            <TextBlock TextWrapping="Wrap" Height="304" HorizontalAlignment="Left" Name="textBlock3" 
+               Text="In order to balance the odds, the player who plays first will have a fraction of the normal amount of operations for their first turn only." VerticalAlignment="Top" Width="474" Grid.Row="2" TextAlignment="Right" FontSize="18" FontStyle="Italic" />
+            <TextBlock TextWrapping="Wrap" Height="304" HorizontalAlignment="Left" Name="textBlock5" 
+               Text="Players take turns moving pieces and placing walls until someone comes out victorious. Each turn is comprised of a certain amount of operations. For each operation, a player can choose to either place a wall or move a piece." VerticalAlignment="Top" Width="474" Grid.Row="1" TextAlignment="Left" />
+        </Grid>
+        <TextBlock Grid.Row="1" TextWrapping="Wrap" Height="200" HorizontalAlignment="Left" Margin="0,430,0,0" Name="textBlock7" 
+   Text="The amount of operations per turn and tokens can be customized or adjusted using any of the three games modes in the Settings page that appears before the game begins." VerticalAlignment="Top" Width="280" />
+        <Button BorderBrush="#FF7B8609" Content="Next" Foreground="#FF29C7F5" Height="101" HorizontalAlignment="Center" Margin="285,533,0,0" Name="button2" VerticalAlignment="Center" Visibility="Visible" Width="195" Grid.Row="1" Click="button2_Click">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Control.Background" Value="Transparent" />
+                    <Setter Property="Control.BorderBrush" Value="{StaticResource PhoneForegroundBrush}" />
+                    <Setter Property="Control.Foreground" Value="{StaticResource PhoneForegroundBrush}" />
+                    <Setter Property="Control.BorderThickness" Value="{StaticResource PhoneBorderThickness}" />
+                    <Setter Property="Control.FontFamily" Value="{StaticResource PhoneFontFamilySemiBold}" />
+                    <Setter Property="Control.FontSize" Value="{StaticResource PhoneFontSizeMediumLarge}" />
+                    <Setter Property="Control.Padding" Value="10,3,10,5" />
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid Background="Transparent">
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="Normal" />
+                                            <VisualState x:Name="MouseOver" />
+                                            <VisualState x:Name="Pressed">
+                                                <VisualState.Storyboard>
+                                                    <Storyboard>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentContainer" Storyboard.TargetProperty="Foreground">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PhoneBackgroundBrush}" />
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ButtonBackground" Storyboard.TargetProperty="Background">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PhoneForegroundBrush}" />
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ButtonBackground" Storyboard.TargetProperty="BorderBrush">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PhoneForegroundBrush}" />
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                    </Storyboard>
+                                                </VisualState.Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="Disabled">
+                                                <VisualState.Storyboard>
+                                                    <Storyboard>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentContainer" Storyboard.TargetProperty="Foreground">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PhoneDisabledBrush}" />
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ButtonBackground" Storyboard.TargetProperty="BorderBrush">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PhoneDisabledBrush}" />
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ButtonBackground" Storyboard.TargetProperty="Background">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Transparent" />
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                    </Storyboard>
+                                                </VisualState.Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <Border Background="{TemplateBinding Control.Background}" BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="{TemplateBinding Control.BorderThickness}" CornerRadius="25" Margin="{StaticResource PhoneTouchTargetOverhang}" Name="ButtonBackground">
+                                        <ContentControl Content="{TemplateBinding ContentControl.Content}" ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" Foreground="{TemplateBinding Control.Foreground}" HorizontalContentAlignment="{TemplateBinding Control.HorizontalContentAlignment}" Name="ContentContainer" Padding="{TemplateBinding Control.Padding}" VerticalContentAlignment="{TemplateBinding Control.VerticalContentAlignment}" />
+                                    </Border>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+
+    <!--Sample code showing usage of ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+</phone:PhoneApplicationPage>
